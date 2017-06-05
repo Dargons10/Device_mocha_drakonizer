@@ -25,6 +25,11 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
 
 $(call inherit-product-if-exists, vendor/xiaomi/mocha/mocha-vendor.mk)
 
+
+# Patched webview
+PRODUCT_PACKAGES += \
+    webview-patched
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     device/xiaomi/mocha/overlay
@@ -124,9 +129,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     camera.tegra
 
-# Gello
-PRODUCT_PACKAGES += \
-    Gello
 
 # Wifi
 PRODUCT_COPY_FILES += \
