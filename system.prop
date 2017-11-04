@@ -35,3 +35,6 @@ drm.service.enabled=true
 ro.radio.noril=yes
 
 media.stagefright.less-secure=true
+
+# Disable Treble OMX
+persist.media.treble_omx=false
