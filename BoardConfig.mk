@@ -119,10 +119,4 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path
 
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
-                       device/xiaomi/mocha/sepolicy/lineage-common \
-                       device/xiaomi/mocha/sepolicy/mocha
-
-# seccomp
-BOARD_SECCOMP_POLICY := device/xiaomi/mocha/seccomp
-
+BOARD_SEPOLICY_DIRS = device/xiaomi/mocha/sepolicy/mocha
