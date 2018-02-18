@@ -48,9 +48,6 @@ PRODUCT_PACKAGES += \
     ussrd.conf \
     ussr_setup
 
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
-TARGET_USERIMAGES_USE_F2FS := true
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
@@ -152,10 +149,6 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-# Custom tiles
-PRODUCT_PACKAGES += \
-    PerformanceTile
-
 # wifi and bt macs settter
 PRODUCT_PACKAGES += \
     conn_init
@@ -187,9 +180,6 @@ PRODUCT_PACKAGES += \
 # Multi HAL configuration file
 PRODUCT_COPY_FILES += \
     device/xiaomi/mocha/sensors/etc/hals.conf:system/etc/sensors/hals.conf
-
-# Packaging
-BLOCK_BASED_OTA := false
 
 # Nvidia enhancements
 NV_ANDROID_FRAMEWORK_ENHANCEMENTS := true
