@@ -184,9 +184,6 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += power.tegra
 
-# Sensors
-PRODUCT_PACKAGES += \
-    sensors.tegra
 
 # Multi HAL configuration file
 PRODUCT_COPY_FILES += \
