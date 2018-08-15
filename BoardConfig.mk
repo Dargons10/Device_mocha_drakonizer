@@ -26,6 +26,8 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a15
 
+TARGET_NOT_USE_GZIP_RECOVERY_RAMDISK := true
+
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
@@ -50,12 +52,15 @@ TARGET_SCREEN_WIDTH := 1536
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # FS
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := f2fs
+ifeq ($(HOST_OS),linux)
+TARGET_USERIMAGES_USE_F2FS := true
+endif
+#BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 TARGET_EXFAT_DRIVER := sdfat
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-TARGET_USES_MKE2FS := true
+#TARGET_USERIMAGES_USE_F2FS := true
+#TARGET_USES_MKE2FS := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -65,8 +70,8 @@ BOARD_DISABLE_TRIPLE_BUFFERED_DISPLAY_SURFACES := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := mocha_init
-TARGET_RECOVERY_DEVICE_MODULES := mocha_init
+#TARGET_INIT_VENDOR_LIB := mocha_init
+#TARGET_RECOVERY_DEVICE_MODULES := mocha_init
 
 # Kernel
 BOARD_KERNEL_CMDLINE := vpr_resize androidboot.selinux=permissive
@@ -77,8 +82,8 @@ BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mocha
 TARGET_KERNEL_CONFIG := tegra12_android_defconfig
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/linaro-4.9.4/bin
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-gnueabihf-
+#KERNEL_TOOLCHAIN := ./prebuilts/gcc/$(HOST_OS)-x86/arm/linaro-4.9.4/bin
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-gnueabihf-
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
@@ -94,7 +99,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 20971520
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # LINEAGEHW
-BOARD_HARDWARE_CLASS := device/xiaomi/mocha/lineagehw
+# BOARD_HARDWARE_CLASS := device/xiaomi/mocha/lineagehw
 
 # Offmode Charging
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -108,7 +113,7 @@ MAX_EGL_CACHE_SIZE := 4194304
 MAX_EGL_CACHE_ENTRY_SIZE := 262144
 
 # Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
+#TARGET_RECOVERY_DEVICE_DIRS += device/xiaomi/mocha
 TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/initfiles/fstab.tn8
 BOARD_NO_SECURE_DISCARD := true
 
@@ -116,9 +121,9 @@ BOARD_NO_SECURE_DISCARD := true
 OVERRIDE_RS_DRIVER := libnvRSDriver.so
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
-                       device/xiaomi/mocha/sepolicy/lineage-common \
-                       device/xiaomi/mocha/sepolicy/mocha
+# BOARD_SEPOLICY_DIRS += device/xiaomi/mocha/sepolicy/common \
+#                      device/xiaomi/mocha/sepolicy/lineage-common \
+#                       device/xiaomi/mocha/sepolicy/mocha
                        
 # ThermalHAL
 TARGET_THERMALHAL_VARIANT := tegra

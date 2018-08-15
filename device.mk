@@ -32,9 +32,9 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     audio.primary.tegra \
-    libaudiohalcm \
     libaudio-resampler \
     libaudiospdif \
+    libaudiohalcm \
     libstagefrighthw \
     libtinycompress \
     tinycap_mocha \
@@ -66,10 +66,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
-    
-# Custom tiles
-PRODUCT_PACKAGES += \
-    PerformanceTile
     
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -164,7 +160,7 @@ PRODUCT_PACKAGES += \
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-PRODUCT_CHARACTERISTICS := tablet
+#PRODUCT_CHARACTERISTICS := tablet
 
 # Thermal
 PRODUCT_PACKAGES += thermal.tegra
